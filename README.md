@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Chatbot (ChatGPT Clone) using Node.js, Next.js & MongoDB Atlas
 
-## Getting Started
+This project is an AI-powered chatbot built using **Node.js** for the backend, **Next.js** for the frontend, and **MongoDB Atlas** for data storage. It integrates the **Gemini API** (Google Generative AI) to generate responses and supports user authentication and multi-chat functionality.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 🌍 **Full-Stack Web App** using Node.js, Express, Next.js
+- 🤖 **AI-Powered Chatbot** powered by Gemini API
+- 🔐 **User Authentication** (OAuth planned but currently removed for study)
+- 🗄 **MongoDB Atlas Integration** for user, chat, and message storage
+- 💬 **Multiple Chat Support** - Users can have separate chat sessions
+- 🚀 **Backend API** with Express & TypeScript
+- 🎨 **Frontend UI** built with Next.js
+
+## Tech Stack
+
+### Backend (Node.js + Express)
+
+- TypeScript
+- Express.js
+- MongoDB Atlas (Mongoose ODM)
+- Passport.js (OAuth planned)
+- Google Generative AI (Gemini API)
+- dotenv (Environment Variables)
+
+### Frontend (Next.js)
+
+- React (via Next.js)
+- Tailwind CSS (for styling)
+- SWR (for data fetching)
+- Context API (for state management)
+
+## Project Structure
+
+```
+📦 AI Chatbot Project
+ ┣ 📂 backend
+ ┃ ┣ 📂 src
+ ┃ ┃ ┣ 📂 config         # Configurations (DB, API Keys, etc.)
+ ┃ ┃ ┣ 📂 controllers    # Express Controllers
+ ┃ ┃ ┣ 📂 models        # Mongoose Models (User, Chat, Message)
+ ┃ ┃ ┣ 📂 routes        # API Routes
+ ┃ ┃ ┣ 📂 services      # Gemini API integration
+ ┃ ┃ ┣ 📂 types         # TypeScript Type Definitions
+ ┃ ┃ ┣ 📂 utils         # Helper Functions
+ ┃ ┃ ┗ 📜 server.ts     # Express Server Setup
+ ┃ ┣ 📜 .env            # Environment Variables
+ ┃ ┣ 📜 package.json    # Dependencies
+ ┃ ┣ 📜 tsconfig.json   # TypeScript Config
+
+ ┣ 📂 frontend
+ ┃ ┣ 📂 app            # Next.js App Router
+ ┃ ┣ 📂 components     # React UI Components
+ ┃ ┣ 📂 context        # Global State Management
+ ┃ ┣ 📂 hooks          # Custom Hooks
+ ┃ ┣ 📂 lib            # API Helpers
+ ┃ ┣ 📂 public         # Static Files (Icons, Images, etc.)
+ ┃ ┣ 📂 shared         # Shared Utilities
+ ┃ ┣ 📜 next.config.js # Next.js Config
+ ┃ ┣ 📜 package.json   # Dependencies
+ ┃ ┗ 📜 tsconfig.json  # TypeScript Config
+
+ ┣ 📜 .gitignore
+ ┗ 📜 README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation & Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1️⃣ Clone the Repository
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
 
-## Learn More
+### 2️⃣ Backend Setup
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+cd backend
+npm install  # Install dependencies
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Setup Environment Variables (`backend/.env`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+GEMINI_API_KEY=your-gemini-api-key
+MONGO_URI=your-mongodb-atlas-connection-string
+SESSION_SECRET=your-session-secret
+```
 
-## Deploy on Vercel
+#### Run Backend Server
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 3️⃣ Frontend Setup
+
+```sh
+cd frontend
+npm install  # Install dependencies
+```
+
+#### Start Frontend
+
+```sh
+npm run dev
+```
+
+### 4️⃣ Open in Browser
+
+```
+http://localhost:3000
+```
+
+## API Endpoints
+
+### User Authentication
+
+- **POST /auth/google** → Google OAuth (Planned, not implemented yet)
+- **POST /auth/login** → Local Login (TBD)
+- **POST /auth/logout** → Logout
+
+### Chat Operations
+
+- **POST /chat/new** → Start a new chat
+- **POST /chat/send** → Send message to chatbot
+- **GET /chat/history** → Retrieve chat history
+
+## Future Improvements
+
+- ✅ OAuth Authentication (Google, GitHub)
+- ✅ Persistent Sessions
+- ✅ UI Enhancements (Better animations, loaders)
+- ✅ Improved AI Model Selection (configurable)
+
+## Contributions
+
+Feel free to fork and submit PRs! 🚀
+
+## License
+
+MIT License
